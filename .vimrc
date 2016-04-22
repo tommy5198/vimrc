@@ -21,6 +21,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 "" Vundle setting end
@@ -30,6 +31,16 @@ call vundle#end()
 let g:airline_powerline_fonts = 1
 " display tabline
 let g:airline#extensions#tabline#enabled = 1
+
+"" Syntastic setting
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "" general setting
 set laststatus=2
@@ -62,6 +73,3 @@ inoremap /**    /*
 inoremap {{     {
 inoremap {}     {}
 inoremap <>     <><Left>
-nnoremap \o o<ESC>o
-nnoremap \p o<ESC>p
-nnoremap \s xp
